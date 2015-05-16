@@ -13,12 +13,12 @@
 				@foreach ($team as $content)
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="/assets/{{$content['image']}}"
+                        <img src="{{URL::to('/assets/'.$content['image'])}}"
  						class="img-responsive img-circle" alt="">
                         <h4>{{$content['name']}}</h4>
                         <p class="text-muted">
 						{{$content['designation']}}</p>
-                        <ul class="list-inline social-buttons">
+                        <!--<ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter">
 							</i></a>
                             </li>
@@ -28,16 +28,11 @@
                             <li><a href="#">
 							<i class="fa fa-linkedin"></i></a>
                             </li>
-                        </ul>
+                        </ul>-->
                     </div>
                 </div>
 				@endforeach
 				@endif
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">
-					Lorem ipsum</p>
-                </div>
-            </div>
+			</div>
         </div>
     </section>

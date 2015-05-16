@@ -6,31 +6,36 @@ class MenuSeeder extends Seeder
 			"title"=>"services",
 			"display_name"=>"services",
 			"description"=>"Lorem ipsum dolor sit amet consectetur.",
-			"link"=>"services"
+			"link"=>"services",
+			"display_order"=>"0"
 		),
 		array(
 			"title"=>"portfolio",
 			"display_name"=>"portfolio",
 			"description"=>"Lorem ipsum dolor sit amet consectetur.",
-			"link"=>"portfolio"
+			"link"=>"portfolio",
+			"display_order"=>"1"
 		),
 		array(
 			"title"=>"about",
 			"display_name"=>"about",
 			"description"=>"Lorem ipsum dolor sit amet consectetur.",
-			"link"=>"about"
+			"link"=>"about",
+			"display_order"=>"2"
 		),
 		array(
 			"title"=>"team",
-			"display_name"=>"our amazing team",
+			"display_name"=>"team",
 			"description"=>"Lorem ipsum dolor sit amet consectetur.",
-			"link"=>"team"
+			"link"=>"team",
+			"display_order"=>"3"
 		),
 		array(
 			"title"=>"contact",
-			"display_name"=>"contact us",
+			"display_name"=>"contact",
 			"description"=>"Lorem ipsum dolor sit amet consectetur.",
-			"link"=>"contact"
+			"link"=>"contact",
+			"display_order"=>"4"
 		)
 	);
 

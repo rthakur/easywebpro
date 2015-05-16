@@ -41,7 +41,7 @@ Route::filter('auth', function()
 		{
 			return Response::make('Unauthorized', 401);
 		}
-		return Redirect::guest('admin/login');
+		return Redirect::guest(URL::to('/admin/login'));
 	}
 });
 
@@ -65,6 +65,27 @@ Route::filter('auth.basic', function()
 Route::filter('guest', function()
 {
 	if (Auth::check()) return Redirect::to('/');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Check Installation Filter
+|--------------------------------------------------------------------------
+|
+| Installation filter to check if db and user is configured and redirect
+| if not.
+|
+*/
+
+Route::filter("installation", function ()
+{	if (Utils::checkFileSystemPermissions())
+		return Redirect::to(URL::to("/installation/permissions"));
+
+	if (!Utils::checkDBConnection())
+		return Redirect::to(URL::to("/installation/db"));
+
+	if (!Utils::checkUserTable())
+		return Redirect::to(URL::to("/installation/user"));
 });
 
 /*

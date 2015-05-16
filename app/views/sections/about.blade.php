@@ -9,15 +9,26 @@
 					{{$menu['about']['description']}}</h3>
                 </div>
             </div>
-            <div class="row">
+			@if (isset($about_html))
+				{{$about_html->html}}
+			@else
+			<div class="row">
                 <div class="col-lg-12">
                     <ul class="timeline">
+					{{--*/
+						$count = 0;
+					/*--}}
 						@if (isset($about))
 						@foreach ($about as $content)
+
+						@if ($count % 2 == 0)
                         <li>
+						@else
+						<li class="timeline-inverted">
+						@endif
                             <div class="timeline-image">
                                 <img class="img-circle img-responsive"
-								src="/assets/{{$content['image']}}"
+								src="{{Url::to('/assets/'.$content['image'])}}"
 								alt="">
                             </div>
                             <div class="timeline-panel">
@@ -38,6 +49,11 @@
                                 </div>
                             </div>
                         </li>
+
+						{{--*/
+						$count++;		
+						/*--}}
+
 						@endforeach
 						@endif
 						<li class="timeline-inverted">
@@ -50,5 +66,6 @@
                     </ul>
                 </div>
             </div>
+			@endif
         </div>
     </section>

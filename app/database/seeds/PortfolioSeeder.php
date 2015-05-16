@@ -3,34 +3,40 @@
 class PortfolioSeeder extends Seeder
 {	protected $data = array(
 		array(
-			"image" => "img/portfolio/roundicons.png",
-			"title" => "Round Icons",
-			"category" => "Graphic Design"
+			"image" => "img/portfolio/1.png",
+			"title" => "lorem ipsum",
+			"category" => "Graphic Design",
+			"url"	=> "http://example.com"
 		),
 		array(
-			"image" => "img/portfolio/startup-framework.png",
-			"title" => "Startup Framework",
-			"category" => "Website Design"
+			"image" => "img/portfolio/2.png",
+			"title" => "lorem ipsum",
+			"category" => "Website Design",
+			"url"	=> "http://example.com"
 		),
 		array(
-			"image" => "img/portfolio/treehouse.png",
-			"title" => "Treehouse",
-			"category" => "Website Design"
+			"image" => "img/portfolio/3.png",
+			"title" => "lorem ipsum",
+			"category" => "Website Design",
+			"url"	=> "http://example.com"
 		),
 		array(
-			"image" => "img/portfolio/golden.png",
-			"title" => "Golden",
-			"category" => "Website Design"
+			"image" => "img/portfolio/4.png",
+			"title" => "lorem ipsum",
+			"category" => "Website Design",
+			"url"	=> "http://example.com"
 		),
 		array(
-			"image" => "img/portfolio/dreams.png",
-			"title" => "Escape",
-			"category" => "Website Design"
+			"image" => "img/portfolio/5.png",
+			"title" => "lorem ipsum",
+			"category" => "Website Design",
+			"url"	=> "http://example.com"
 		),
 		array(
-			"image" => "img/portfolio/roundicons.png",
-			"title" => "Dreams",
-			"category" => "Website Design"
+			"image" => "img/portfolio/1.png",
+			"title" => "lorem ipsum",
+			"category" => "Website Design",
+			"url"	=> "http://example.com"
 		)
 	);
 

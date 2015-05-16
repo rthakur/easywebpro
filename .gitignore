@@ -1,4 +1,7 @@
-/vendor
 composer.lock
 /extra
 *~
+public/assets/fileupload
+assets/fileupload
+app/config/database.php
+test.test

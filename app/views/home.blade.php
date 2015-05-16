@@ -1,55 +1,24 @@
 @extends('layouts.main')
 
+@section('extra_scripts')
+
+<script src="{{URL::to('/assets/js/home/home.js')}}"></script>
+
+@if (isset($skin_path))
+<link rel="stylesheet" type="text/css" href="{{URL::to($skin_path)}}" />
+@endif
+
+@stop
+
 @section('content')
 
-<!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" 
-				data-toggle="collapse" 
-				data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" 
-				href="#page-top">Start Bootstrap</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" 
-			id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-					<li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-					@if( isset($menu))
-						@foreach ($menu as $entry)
-							<li class="page-scroll">
-								<a href="#{{$entry['url']}}">
-								{{$entry['title']}}
-								</a>
-							</li>
-						@endforeach
-					@endif
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
 	<!-- Header -->
-    <header>
+    <header data-img-path="{{URL::to('/assets/'.$home['image'])}}" style="@if(isset($home->header_image_height))height:{{$home->header_image_height}}px !important; overflow:hidden;@endif">
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Our Studio!</div>
-                <div class="intro-heading">It's Nice To Meet You</div>
-                <a href="#services" class="page-scroll btn btn-xl">
-				Tell Me More</a>
+                <div class="intro-lead-in" style="@if(isset($home->heading_size))font-size:{{$home->heading_size}}px !important;@endif @if(isset($home->heading_color))color:{{$home->heading_color}};@endif">{{$home['heading']}}</div>
+                <div class="intro-heading" style="@if(isset($home->sub_heading_size))font-size:{{$home->sub_heading_size}}px !important;@endif @if(isset($home->sub_heading_color))color:{{$home->sub_heading_color}};@endif">{{$home['sub_heading']}}
+				</div>
             </div>
         </div>
 
@@ -57,49 +26,33 @@
     
 	<!-- Section Services -->
 
-	@include('sections.services')
+	@if (isset($menu))
 
-	<!-- Portfolio Grid Section -->
-	@include('sections.portfolio')
+		@foreach($menu as $get)
+			@if(isset($get->title))
+				@if ($get->user_created)
+					{{--*/
+						$section = SectionModel::where('menu_id', '=', $get->id)->get();
+						$data = array();
 
-	<!-- About Section -->
-	@include('sections.about')
+						if (count($section) > 0)
+						{	$section = $section[0];
 
-	<!-- Team Section -->
-	@include('sections.team')
+							if (isset($section->html))
+								$data['html'] = $section->html;
+						}
 
-	<!-- Clients Aside -->
-    @include('sections.clients')
+						$data['title'] = $get->title;
+						$data['display_name'] = $get->display_name;
+						$data['description'] = $get->description;
+						echo View::make('sections.flat_page', $data);
+					/*--}}
+				@else
+					@include('sections.'.$get->title)
+				@endif
+			@endif	
+		@endforeach
 
-	<!-- Contact -->
-	@include('sections.contact')
-	
-	<footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+	@endif
 
 @stop

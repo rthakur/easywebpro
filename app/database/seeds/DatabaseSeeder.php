@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder {
 		$this->call('AboutSeeder');
 		$this->call('TeamSeeder');
 		$this->call('ClientsSeeder');
-		$this->call('UserSeeder');
+		$this->call('HomePageSeeder');
+		$this->call('SkinsSeeder');
+		$this->call('HtmlPagesSeeder');
+		$this->call('OptionTableSeeder');
 	}
 
 }

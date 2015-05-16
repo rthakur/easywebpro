@@ -3,25 +3,25 @@
 class TeamSeeder extends Seeder
 {	protected $data = array(
 		array(
-			"image" => "img/team/1.jpg",
-			"name" => "Kay Garland",
-			"designation" => "Lead Designer",
+			"image" => "img/team/team_manager.png",
+			"name" => "John",
+			"designation" => "Team Manager",
 			"facebook_link" => "",
 			"twitter_link" => "",
 			"linkedin_link" => ""
 		),
 		array(
-			"image" => "img/team/2.jpg",
-			"name" => "Larry Parker",
-			"designation" => "Lead Marketer",
+			"image" => "img/team/team_developer.png",
+			"name" => "Nick",
+			"designation" => "Developer",
 			"facebook_link" => "",
 			"twitter_link" => "",
 			"linkedin_link" => ""
 		),
 		array(
-			"image" => "img/team/3.jpg",
-			"name" => "Diana Pertersen",
-			"designation" => "Lead Developer",
+			"image" => "img/team/team_support.png",
+			"name" => "Kelly",
+			"designation" => "Support",
 			"facebook_link" => "",
 			"twitter_link" => "",
 			"linkedin_link" => ""

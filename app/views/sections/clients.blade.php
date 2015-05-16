@@ -5,7 +5,7 @@
 				@foreach ($clients as $client)
                 <div class="col-md-3 col-sm-6">
                     <a href="#">
-                        <img src="assets/{{$client['image']}}" 
+                        <img src="{{URL::to('assets/'.$client['image'])}}" 
 						class="img-responsive img-centered" alt="">
                     </a>
                 </div>

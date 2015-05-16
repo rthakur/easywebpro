@@ -1,52 +1,84 @@
 @extends('layouts.admin')
 
+@section('extra_scripts')
+
+<script src="{{URL::to('/assets/js/admin/contact.js')}}"></script>
+
+@stop
+
 @section('content')
 
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">
-					{{$menu['contact']['title']}}</h2>
-                    <h3 class="section-subheading text-muted">
-					{{$menu['contact']['description']}}</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm"
-					 novalidate>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" 
-									class="form-control"
-									placeholder="Your Name *"
-									id="name" 
-									required data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<h2 class="section-heading">
+			{{$menu['contact']['display_name']}}
+			<small class="h6">
+				<a data-toggle="collapse"
+				href="#collapse_title">
+				Edit</a>
+			</small>
+			</h2>
+			<div class="collapse" id="collapse_title">
+				<div class="well">
+					<form action="{{URL::to('/admin/contact/put')}}" method="POST">
+						<div class="form-group">
+							<input type="text" name="title" 
+							id="title" class="form-control" />
+							<input type="hidden" id="url_get" 
+							value="{{URL::to('/admin/contact/get')}}" />
+							<button type="submit" class="form-control">Update</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<h3 class="section-subheading text-muted">
+			{{$menu['contact']['description']}}
+			<small class="h6">
+				<a data-toggle="collapse"
+				href="#collapse_description">
+				Edit</a>
+			</small>
+			</h3>
+
+			<div class="collapse" id="collapse_description">
+				<div class="well">
+					<form action="{{URL::to('/admin/contact/put')}}" method="POST">
+						<div class="form-group">
+							<input type="text" name="description" 
+							id="description" class="form-control" />
+							<input type="hidden" id="url_get" 
+							value="{{URL::to('/admin/contact/get')}}" />
+							<button type="submit" class="form-control">Update</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>E-Mail</th>
+					<th>Phone</th>
+					<th>Message</th>
+				</tr>
+				@if (isset($contacts))
+				@foreach ($contacts as $contact)
+				<tr>
+					<td>{{$contact['id']}}</td>
+					<td>{{$contact['name']}}</td>
+					<td>{{$contact['email']}}</td>
+					<td>{{$contact['phone']}}</td>
+					<td>{{$contact['message']}}</td>
+				</tr>
+				@endforeach
+				@endif
+			</table>
+		</div>
+	</div>
+	
 
 @stop

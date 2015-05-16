@@ -9,11 +9,11 @@
     <title>Start Bootstrap - SB Admin Version 2.0 Demo</title>
 
     <!-- Core CSS - Include with every page -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="{{URL::to('/assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{URL::to('/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
     <!-- SB Admin CSS - Include with every page -->
-    <link href="/assets/css/sb-admin.css" rel="stylesheet">
+    <link href="{{URL::to('/assets/css/sb-admin.css')}}" rel="stylesheet">
 
 </head>
 
@@ -27,7 +27,7 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="/authenticate" method="POST">
+                        <form role="form" action="{{URL::to('/authenticate')}}" method="POST">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
@@ -63,12 +63,12 @@
     </div>
 
     <!-- Core Scripts - Include with every page -->
-    <script src="/assets/js/jquery-1.10.2.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="{{URL::to('/assets/js/jquery-1.10.2.js')}}"></script>
+    <script src="{{URL::to('/assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::to('/assets/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
 
     <!-- SB Admin Scripts - Include with every page -->
-    <script src="/assets/js/sb-admin.js"></script>
+    <script src="{{URL::to('/assets/js/sb-admin.js')}}"></script>
 
 </body>
 

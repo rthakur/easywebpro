@@ -17,6 +17,7 @@ class Menu extends Migration {
 			$table->string('title');
 			$table->string('display_name');
 			$table->text('description');
+			$table->string('display_order');
 			$table->timestamps();
 		});
 	}
